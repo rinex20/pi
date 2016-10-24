@@ -1,0 +1,40 @@
+把树莓派驱动复制到/boot目录下， 执行以下操作：
+tar xzvf /boot/LCD-show-YYMMDD.tar.gz 
+cd LCD-show/
+./LCD35-show
+
+重启后即可使用.
+
+LCD和HDMI相互切换
+使用上面两种方法在正常使用LCD的情况下，外接HDMI是没有显示的，如需启用HDMI输出，需执行以下命令，树莓派会自动重启。再等待约30秒，HDMI显示屏开始显示。
+cd LCD-show/
+./LCD-hdmi
+
+如需切换回LCD显示方式，则需执行以下命令：
+cd LCD-show/
+./LCD35-show
+
+设置显示方向
+安装完触摸驱动后，可以通过运行以下命令修改屏幕旋转方向。
+旋转X度：
+cd LCD-show/
+./LCD35-show X
+X=0,90,180,270
+
+安装校准软件进行校准
+解压并把xinput-calibrator_0.7.5-1_armhf.deb复制到树莓派的raspbian系统中。
+
+sudo dpkg -i -B xinput-calibrator_0.7.5-1_armhf.deb
+点击任务栏的Menu键，选择Preferences -> Calibrate Touchscreen。
+
+按显示提示进行触摸校准。此过程可能需要重启以生效。
+
+如果要保存这些触摸值，需要在以下路径新建一个99-calibration.conf文件(如果已存在则不需要新建)
+/etc/X11/xorg.conf.d/99-calibration.conf
+
+将触摸参数（不同LCD，下图数据可能不同）保存至99-calibration.conf，即可.
+
+
+
+
+http://www.waveshare.net/wiki/3.5inch_RPi_LCD_(A)#.E8.AE.BE.E7.BD.AE.E6.98.BE.E7.A4.BA.E6.96.B9.E5.90.91

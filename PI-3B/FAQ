@@ -1,3 +1,10 @@
 常用问题解决
 
 https://www.zybuluo.com/yangxuan/note/321467
+
+编译shadowsocks-libev
+git cline https://github.com/shadowsocks/shadowsocks-libev.git
+
+apt-get install libssl-dev
+apt-get install libpcre3 libpcre3-dev
+

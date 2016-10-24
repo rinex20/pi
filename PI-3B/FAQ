@@ -8,3 +8,4 @@ git cline https://github.com/shadowsocks/shadowsocks-libev.git
 apt-get install libssl-dev
 apt-get install libpcre3 libpcre3-dev
 
+apt-get install asciidoc

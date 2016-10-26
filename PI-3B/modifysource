@@ -1,0 +1,19 @@
+cp /etc/apt/sources.list ~
+cp /etc/apt/sources.d/raspi.list ~
+
+修改source.list
+更新后的/etc/apt/sources.list：
+#deb http://mirrordirector.raspbian.org/raspbian/ jessie main contrib non-free rpi
+# Uncomment line below then 'apt-get update' to enable 'apt-get source'
+#deb-src http://archive.raspbian.org/raspbian/ jessie main contrib non-free rpi
+
+# use ustc mirror:
+deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ jessie main contrib non-free rpi
+
+更新后的/etc/apt/raspi.list
+#deb http://archive.raspberrypi.org/debian/ jessie main ui
+# Uncomment line below then 'apt-get update' to enable 'apt-get source'
+#deb-src http://archive.raspberrypi.org/debian/ jessie main ui
+
+# use ustc mirror:
+deb http://mirrors.ustc.edu.cn/archive.raspberrypi.org/debian/ jessie main ui

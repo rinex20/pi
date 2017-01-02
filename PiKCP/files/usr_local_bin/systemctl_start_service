@@ -1,0 +1,20 @@
+systemd自启服务脚本
+手动启动服务总不是个好办法，毕竟重启就得手动运行一遍，实在无聊。
+
+新建一个文件/etc/systemd/system/kcptun.service内容如下:
+
+[Unit]
+Description=Kcptun Client Service
+After=network.target
+[Service]
+Type=simple
+User=nobody
+ExecStart=< 上面的start.sh的主体部分(去掉shebang行)粘贴过来即可 >
+[Install]
+WantedBy=default.target
+
+sudo chmod +x  /etc/systemd/system/kcptun.service
+
+sudo systemctl start kcptun.service
+
+sudo systemctl daemon-reload && sudo systemctl enable kcptun.service

@@ -1,1 +1,10 @@
 readme
+
+ipset ss_spec_dst_fw
+------>1081(created by ss-redir)
+
+chinadns 
+ss-tunnel------
+forward 8.8.8.8:53---->127.0.0.1:5300
+chinadns upstream server:223.5.5.5,127.0.0.1:5300--->5354
+dnsmasq:5354----->0.0.0.0:53

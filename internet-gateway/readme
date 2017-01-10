@@ -23,6 +23,11 @@ ipset -N ss_spec_dst_fw iphash
 
 
 参考：
+ROS+RASPI实现分流
 https://quchao.com/entry/turning-a-raspberry_pi-into-a-gateway/
 
+Openwrt上使用dnsmasq和ipset实现域名分流
 http://www.keepwn.com/howto/route-traffic-selectively-by-domain-on-openwrt/
+
+IP隧道 + DNSMASQ(ipset)配合iptables做策略路由实现自动翻墙
+http://huxos.me/blog/fcuk-g-f-w/

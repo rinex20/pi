@@ -1,0 +1,5 @@
+#default ss opts
+KCPOPTS=-l 127.0.0.1:18600 -r 107.167.182.232:19004 --crypt none --key 0313 --mtu 1400 --sndwnd 256 --rcvwnd 1024 --dscp 46 --datashard 70 --parityshard 30 --nocomp --mode fast2 > /dev/null 2>&1 &
+SSREDIROPTS=-s 127.0.0.1 -p 18600 -b 0.0.0.0 -l 1081 -k 771213 -m aes-256-cfb -A -u >/dev/null 2>&1 &
+SSTUNNELOPTS=-s 106.186.120.226 -p 443 -l 5300 -L 8.8.8.8:53 -u -A -k 771213 -m aes-256-cfb >/dev/null 2>&1 &
+CHINADNSOPTS=-c /var/ss/chnroute.txt -p 5354  -s 223.5.5.5,127.0.0.1:5300 -m >/dev/null 2>&1 &

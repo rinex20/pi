@@ -1,0 +1,23 @@
+[Unit]
+Description=ss-redir service
+After=network.target kcp.service
+
+[Service]
+Type=simple
+User=root
+EnvironmentFile=/etc/default/gfwservice
+ExecStart=/usr/local/bin/ss-redir $SSREDIROPTS
+
+#-s 127.0.0.1 -p 18600 -b 0.0.0.0 -l 1081 -k 771213 -m aes-256-cfb -A -u >/dev/null 2>&1 &
+
+Restart=on-failure
+RestartSec=20
+KillMode=process
+# saving a big db on slow disks may need some time
+TimeoutStopSec=30
+
+
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target

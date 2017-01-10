@@ -1,0 +1,18 @@
+[Unit]
+Description=KCPTUN client service
+After=network.target syslog.target network-online.target
+
+[Service]
+Type=simple
+User=root
+EnvironmentFile=/etc/default/gfwservice
+ExecStart=/usr/local/bin/kcp_client $KCPOPTS
+
+Restart=on-failure
+RestartSec=20
+KillMode=process
+# saving a big db on slow disks may need some time
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

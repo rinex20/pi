@@ -1,0 +1,18 @@
+[Unit]
+Description=chinadns service
+After=network.target kcp.service ss-redir.service ss-tunnel.service
+
+[Service]
+Type=simple
+User=root
+EnvironmentFile=/etc/default/gfwservice
+ExecStart=/usr/local/bin/chinadns $CHINADNSOPTS
+
+Restart=on-failure
+RestartSec=10
+KillMode=process
+# saving a big db on slow disks may need some time
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target

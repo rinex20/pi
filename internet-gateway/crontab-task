@@ -1,0 +1,6 @@
+10 5 * * * reboot
+
+#restart dnsmasq every 10 minutes
+*/10 * * * * /etc/init.d/dnsmasq restart
+#execute the command after reboot
+@reboot /var/ss/restartdnsmasqafterreboot.sh &

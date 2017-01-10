@@ -8,3 +8,8 @@ ss-tunnel------
 forward 8.8.8.8:53---->127.0.0.1:5300
 chinadns upstream server:223.5.5.5,127.0.0.1:5300--->5354
 dnsmasq:5354----->0.0.0.0:53
+
+参考：
+https://quchao.com/entry/turning-a-raspberry_pi-into-a-gateway/
+
+http://www.keepwn.com/howto/route-traffic-selectively-by-domain-on-openwrt/

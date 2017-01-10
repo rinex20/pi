@@ -9,6 +9,19 @@ forward 8.8.8.8:53---->127.0.0.1:5300
 chinadns upstream server:223.5.5.5,127.0.0.1:5300--->5354
 dnsmasq:5354----->0.0.0.0:53
 
+建立启动文件，
+使每次启动均自动添加上述防火墙规则：
+touch /etc/network/if-pre-up.d/iptables
+chmod +x /etc/network/if-pre-up.d/iptables
+
+文件内容如下：
+#!/bin/sh
+#增加ipset
+ipset -N ss_spec_dst_fw iphash
+/sbin/iptables-restore < /etc/iptables/rules.v4
+
+
+
 参考：
 https://quchao.com/entry/turning-a-raspberry_pi-into-a-gateway/
 

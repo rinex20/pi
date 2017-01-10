@@ -1,0 +1,8 @@
+
+#!/bin/sh
+
+#create ipset
+ipset -N ss_spec_dst_fw iphash
+
+#restore iptables from file
+/sbin/iptables-restore < /etc/iptables/rules.v4

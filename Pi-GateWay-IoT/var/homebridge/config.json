@@ -1,0 +1,46 @@
+{
+        "bridge":
+                {
+                "name": "Homebridge",
+                "username": "CB:22:3D:E3:CE:30",
+                "port": 51826,
+                "pin": "198-60-313"
+                },
+        "platforms": [
+                {
+                "platform": "AqaraPlatform",
+                "sid": ["f0b429aa2675"],
+                "password": ["6pihjlkp79blxl5q"]
+                },
+                {
+                "platform" : "yeelight",
+                "name" : "yeelight"
+                },
+                {
+                "platform": "BelkinWeMo",
+                "name": "WeMo Platform",
+                "noMotionTimer": 60,
+                "ignoredDevices": []
+                },
+                {
+                "platform": "Server",
+                "port"    : 8765,
+                "name"    : "Homebridge Server",
+                "log"     : "systemd",
+                "restart" : "systemctl restart homebridge"
+                }
+        ],
+        "accessories": [
+                {
+                "accessory": "PiTemperature",
+                "name": "Raspi Temperature"
+                },
+                {
+                "accessory": "GPIO",
+                "name": "GPIO(pin7)",
+                "pin": 7,
+                "duration": 4000
+    }
+        ]
+}
+

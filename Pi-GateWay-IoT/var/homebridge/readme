@@ -1,0 +1,2 @@
+useradd --system homebridge
+chown homebridge /var/homebridge/config.json

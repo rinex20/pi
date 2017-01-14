@@ -1,4 +1,11 @@
+20170115-------
 采用ssr方案，增加混淆插件支持，即ssr
 iptables setting
 new script support----ssr-redir.ipt
 add ssr-redir.ipt to the if.pre-up.d,execute this script when the network up.
+
+20170114-------
+create ipset for china IP
+curl 'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest' | grep ipv4 | grep CN | awk -F\| '{ printf("%s/%d\n", $4, 32-log($5)/log(2)) }' > chnroute.txt
+>ipset create chnroute hash:net
+>cat chnroute.txt | sudo xargs -I ip ipset add chnroute ip 

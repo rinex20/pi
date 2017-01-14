@@ -1,0 +1,4 @@
+采用ssr方案，增加混淆插件支持，即ssr
+iptables setting
+new script support----ssr-redir.ipt
+add ssr-redir.ipt to the if.pre-up.d,execute this script when the network up.

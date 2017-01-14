@@ -6,3 +6,7 @@ ipset -N ss_spec_dst_fw iphash
 
 #restore iptables from file
 /sbin/iptables-restore < /etc/iptables/rules.v4
+
+#execute the following scripte to import iptables rules
+#the latest solution,updated 20170115
+/etc/iptables/ssr-iptables.ipt

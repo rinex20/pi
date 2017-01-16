@@ -1,0 +1,20 @@
+安装ipset并导入chnroute
+我们科学翻墙的规则：凡是国外的网站都用shadowsocks加速。因此，我们借助于ipset保存国内ip段。先用sudo apt-get install ipset安装软件
+
+执行命令
+
+curl 'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest' | grep ipv4 | grep CN | awk -F\| '{ printf("%s/%d\n", $4, 32-log($5)/log(2)) }' > chnroute.txt  
+来导出国内ip段
+
+然后用如下命令导入到ipset
+
+sudo ipset create chnroute hash:net  
+cat chnroute.txt | sudo xargs -I ip ipset add chnroute ip  
+21.备份ipset并开机载入
+各位看官可能已经发现，导入ipset的过程非常缓慢，不适合每次开机都执行。我们可以将ipset的结果保存，每次开机导入。执行如下命令
+
+sudo ipset save chnroute > /etc/chnroute.ipset  
+然后在/etc/rc.local中加入如下语句
+
+ipset restore < /etc/chnroute.ipset  
+即可开机执行

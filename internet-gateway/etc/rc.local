@@ -1,0 +1,2 @@
+#add ipset restore
+ipset restore < /etc/chnroute.ipset
